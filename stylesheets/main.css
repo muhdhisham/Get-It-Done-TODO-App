@@ -4,15 +4,8 @@
   --shadow-color:0, 0, 0;
   --gradient-1: 110, 29, 103;
   --gradient-2: 90, 20, 208;
-  --sidebar-gradient-1: 255, 255, 255;
-  --sidebar-gradient-2: 251, 247, 247;
-  --bg-color: 19, 19, 19;
-  --text-color: 255,255,255;
-  --shadow-color:255, 255, 255;
-  --gradient-1: 43, 47, 115;
-  --gradient-2: 165, 97, 30;
-  --sidebar-gradient-1: 35, 35, 35;
-  --sidebar-gradient-2: 46, 46, 46; }
+  --sidebar-gradient-1: #FFA69E;
+  --sidebar-gradient-2: #861657; }
 
 body {
   margin: px; }
@@ -32,11 +25,15 @@ body {
   transition: all 0.2s; }
 
 .icon {
-  transition: transform .4s;
+  transition: transform 0.6s;
   transform-origin: center;
   transition-timing-function: cubic-bezier(0.9, 1.65, 0.42, 0.61); }
   .icon:hover {
     transform: rotate(180deg); }
+
+#main {
+  position: relative;
+  flex-grow: 1; }
 
 header, h2, h2, h3, h4, h5, h6, input {
   font-weight: inherit; }
@@ -110,3 +107,182 @@ body {
   width: 20%;
   background-image: linear-gradient(rgba(var(--gradient-1), 1), rgba(var(--gradient-2), 1));
   clip-path: polygon(0 0, 100% 0, 100% 83%, 22% 100%); }
+  @media (max-width: 1600px) {
+    #main::after {
+      width: 30%; } }
+  @media (max-width: 1400px) {
+    #main::after {
+      height: 38vh;
+      width: 40%;
+      clip-path: polygon(0 0, 100% 0, 100% 83%, 22% 100%); } }
+  @media (max-width: 1100px) {
+    #main::after {
+      position: absolute;
+      height: 10vh;
+      width: 100%;
+      top: auto;
+      bottom: 0;
+      clip-path: polygon(0 39%, 100% 0, 100% 100%, 0 100%); } }
+
+#menu-section {
+  color: rgba(var(--text-color), 1); }
+  #menu-section input {
+    display: none; }
+
+input#menu:checked ~ #menu-controller {
+  transform: translate(-10vw); }
+
+input#menu:checked ~ #menu-dimmed-bg {
+  visibility: visible;
+  transform: translate(0);
+  transition: transform 1s 0; }
+
+input#menu:checked ~ #menu-content {
+  opacity: 1;
+  transform: translate(0);
+  transition: transform .5s .4s; }
+
+#menu-controller {
+  width: calc(4.5vw + 70px);
+  min-height: 100vh;
+  height: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  padding-top: 40px;
+  background-image: linear-gradient(var(--sidebar-gradient-1), var(--sidebar-gradient-2));
+  box-shadow: 0 10px 20px rgba(var(--shadow-color), 0.19), 0 6px 6px rgba(var(--shadow-color), 0.23);
+  transition: transform 1s; }
+  #menu-controller label {
+    width: 40%;
+    margin: 0 auto;
+    background-position: center;
+    height: 50px;
+    display: block;
+    background-image: url("../images/hamburger.png");
+    background-size: contain;
+    background-repeat: no-repeat; }
+
+#menu-dimmed-bg {
+  visibility: hidden;
+  transform: translate(-120vw);
+  transition: all 0.8s 0.2s, color 0.2s, background-color 0.2s;
+  z-index: 1;
+  background-color: rgba(var(--text-color), 0.6);
+  position: fixed;
+  top: 0;
+  min-height: 100vh;
+  width: 100%; }
+
+#menu-content {
+  --menu-font-size: 2.25rem;
+  transform: translate(-1200px);
+  opacity: 0;
+  transition: all 0.6s 0s, color 0.2s, background-color 0.2s;
+  padding: 40px;
+  padding-left: 100px;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: rgba(var(--bg-color), 1);
+  overflow-y: hidden;
+  width: 54%; }
+  #menu-content header {
+    transition: all 0.2s;
+    display: flex;
+    justify-content: space-between; }
+    #menu-content header h4 {
+      text-transform: upppercase;
+      margin: 0;
+      font-size: var(--menu-font-size); }
+    #menu-content header label {
+      width: 40px;
+      height: 40px;
+      margin-right: 100px;
+      background-image: url("../images/close.png");
+      background-size: contain;
+      background-repeat: no-repeat; }
+  #menu-content #theme {
+    transition: all 0.2s; }
+    #menu-content #theme h5 {
+      margin-top: 7rem;
+      font-size: var(--menu-font-size);
+      text-transform: uppercase;
+      line-height: 10%; }
+      #menu-content #theme h5 span {
+        margin-left: 40px; }
+        #menu-content #theme h5 span:hover {
+          opacity: .6; }
+  #menu-content #completed-tasks {
+    transition: all 0.2s; }
+    #menu-content #completed-tasks h5 {
+      font-size: var(--menu-font-size);
+      margin: 7rem 0 1.5rem;
+      text-transform: uppercase; }
+    #menu-content #completed-tasks li {
+      font-size: var(--menu-font-size);
+      list-style: none;
+      margin: 12px 0;
+      width: max-content;
+      padding: 5px; }
+      #menu-content #completed-tasks li span {
+        margin-left: 22px; }
+  #menu-content #reset {
+    transition: all 0.2s;
+    font-size: var(--menu-font-size);
+    text-transform: uppercase;
+    padding: 5px;
+    width: max-content; }
+    #menu-content #reset:hover {
+      background-color: rgba(var(--text-color), 1);
+      color: rgba(var(--text-color), 1); }
+  @media (max-width: 1500px) {
+    #menu-content {
+      width: 70%; } }
+
+@media (max-width: 1100px) {
+  #menu-controller {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: auto;
+    height: 100px;
+    padding-top: 0; }
+    #menu-controller label {
+      width: 100px; }
+  #menu-dimmed-bg {
+    transform: translate(0, -120vh); }
+  #menu-content {
+    --menu-font-size: 3.2rem;
+    transform: translate(0, -100vh);
+    width: 100%;
+    padding: 0; }
+    #menu-content header {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center; }
+      #menu-content header label {
+        height: 40px;
+        margin: 40px 0;
+        background-position: center; }
+    #menu-content #theme {
+      margin: 10rem; }
+      #menu-content #theme h5 {
+        text-align: center; }
+    #menu-content #completed-tasks h5 {
+      margin: 10rem 0 4rem;
+      text-align: center; }
+    #menu-content #completed-tasks li {
+      margin-left: auto;
+      margin-right: center; }
+    #menu-content #reset {
+      margin: 12rem auto 100px; }
+  input#menu:checked ~ #menu-controller {
+    transform: translate(0, -10vh); } }
+
+@media (max-width: 500px) {
+  #menu-controller {
+    height: 75px; }
+    #menu-controller label {
+      width: 75px; } }
