@@ -18,7 +18,7 @@ window.onload = function() {
 
     req.onsuccess = function() {
         database = req.result;
-        onload();
+        onLoad();
     }
 
     req.onerror = function(event) {
@@ -91,3 +91,43 @@ function deleteAllTasks(store, success, error = defaultError) {
     request.onerror = error;
     request.onsuccess = success;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

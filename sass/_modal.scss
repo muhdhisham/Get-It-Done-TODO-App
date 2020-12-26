@@ -24,48 +24,44 @@
     }
 }
 
-@keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity: 1;}
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 #modal {
     border: none;
     font-size: 1rem;
-    background-image: linear-gradient(to left, rgba(var(--gradient-1),1), rgba(var(--gradient-2), 1));
+    background-image: linear-gradient(to left, rgba(var(--gradient-1), 1), rgba(var(--gradient-2), 1));
     color: white;
     padding: 2.8rem 10rem;
+    position: fixed;
     z-index: 100;
     top: 50%;
-    transform: translateY(-50%);
     outline: none;
-
+    transform: translateY(-50%);
+    
     h2 {
         margin-bottom: 30px;
         line-height: 170%;
     }
-
+    
     button {
         outline: none;
-        border: 2 solid white;
+        border: 2px solid white;;
         font-size: 1.15rem;
         background-color: white;
         color: #222;
-        padding: .6rem 4rem;
+        padding: .6em 4em;
         transition: all .1s;
         background-color: transparent;
         color: white;
-
-
         &:hover {
             transform: scale(1.1);
-
         }
-
-
     }
-
+    
     &[open] {
         animation: flipInX ease .5s .2s;
         animation-fill-mode: both;
@@ -73,14 +69,13 @@
             animation: fadeIn ease .25s;
         }
     }
-
+    
     @media (max-width: 1400px) {
         font-size: 1.65rem;
-        button {font-size: 1.85rem;}
+        button { font-size: 1.85rem; }
     }
-
-    @media (max-width: 1100px)
-    {
+    
+    @media (max-width: 1100px) {
         font-size: 3.2rem;
         height: 100vh;
         width: 100%;
@@ -88,15 +83,19 @@
         padding: 0;
         padding-top: 60vh;
         margin: 0;
-    
-        button {font-size: 3.5rem;}
-
+        
+        button { font-size: 3.5rem; }
     }
-
-    @media (max-content: 500px)
-    {
+    
+    @media (max-width: 500px) {
         letter-spacing: -1px;
         font-size: 2.45rem;
         button { font-size: 3rem;}
     }
+    
+    
+    
 }
+
+
+

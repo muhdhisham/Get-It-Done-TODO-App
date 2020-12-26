@@ -1,10 +1,27 @@
-function getCurrentDate () {
+
+
+function getCurrentDate() {
     let date = new Date();
-    let months = ["Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
+    let months = [
+        "Jan.",
+        "Feb.",
+        "Mar.",
+        "Apr.",
+        "May",
+        "June",
+        "July",
+        "Aug.",
+        "Sept.",
+        "Oct.",
+        "Nov.",
+        "Dec.",
+    ]
+    
     let month = months[date.getMonth()];
     let day = addOrdinalIndicator(date.getDate());
-    function addOrdinalIndicator(day){
-        switch (day){
+    
+    function addOrdinalIndicator(day) {
+        switch (day) {
             case 1:
             case 21:
             case 31:
@@ -18,14 +35,13 @@ function getCurrentDate () {
             case 23:
                 day = day + "rd";
                 break;
-            default:
-                day = day + "th"
+            default: day = day + "th";
         }
         return day;
-        }
+    }
+    
+    
     fullDate = `${month} ${day}`;
     return fullDate;
 }
-
-
 
