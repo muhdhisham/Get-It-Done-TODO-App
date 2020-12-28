@@ -7,4 +7,4 @@
 <img src="images\getitdone.jpg">
 
 
-> ## Checkout the website [here](https://getitdoneapp.nettify.app)
+> ## Checkout the website [here](https://getitdoneapp.netlify.app)
