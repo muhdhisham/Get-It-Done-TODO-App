@@ -10,4 +10,6 @@
 <img src="images\getitdone.jpg">
 
 
+<<<<<<< HEAD
 > ## Checkout the website [here](https://getitdoneapp.netlify.app)
+
